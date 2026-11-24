@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join the test · The Little Keep</title>
+<meta name="description" content="Become a tester of The Little Keep on Google Play in three taps.">
+<link rel="icon" href="img/icon.webp" type="image/webp">
+<meta property="og:title" content="The Little Keep">
+<meta property="og:description" content="Become a tester of The Little Keep on Google Play in three taps.">
+<meta property="og:image" content="https://teddy312.github.io/thelittlekeep/img/feature.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: warm, cozy, a little storybook; a small indie game's home on the web
+   IDEA: the game's own meadow seen from above, with a parchment notice board pinned beside it
+   PICTURE: a big drawn scene: the wooden keep on its island of earth, defenders on the walls, goblins marching in
+   COLOUR and TYPE: meadow green field, parchment cards, dark wood frames, gold buttons; MedievalSharp titles, Nunito text
+   LAYOUT: wood nav, hero (title + scene), features, screenshot scroller, how it plays, join the test, FAQ, footer; legal pages as separate views */
+:root{color-scheme:light dark;--grass:light-dark(#7fae5a,#2c4422);--grass2:light-dark(#6b9a49,#243a1c);--parch:light-dark(#f4e6c8,#2f2116);--parch2:light-dark(#ead6ad,#3a2a1c);--ink:light-dark(#3a2616,#f0e2c4);--muted:light-dark(#6b5238,#c9b48f);--wood:#5a3a22;--wood2:#3e2716;--gold:#e8ad2c;--line:light-dark(#d9c49c,#4a3524)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:84px;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--grass);color:var(--ink);font:16px/1.6 Nunito,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:MedievalSharp,Georgia,serif;font-weight:400;line-height:1.08;text-wrap:balance;margin:0}
+h1{font-size:clamp(40px,6vw,52px);color:#fff7e6;text-shadow:0 3px 0 var(--wood2),0 0 18px rgba(0,0,0,.25)}
+h2{font-size:clamp(32px,4vw,44px)}
+h3{font-size:24px}
+p{max-width:68ch}
+nav{position:sticky;top:0;z-index:5;background:var(--wood);border-bottom:4px solid var(--wood2);color:#f4e6c8}
+nav .in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;padding:10px max(4vw,14px)}
+nav .brand{display:flex;align-items:center;gap:10px;font-family:MedievalSharp,serif;font-size:24px;text-decoration:none;margin-right:auto}
+nav .brand img{width:40px;height:40px;border-radius:10px;border:2px solid var(--wood2)}
+nav .links{display:flex;flex-wrap:wrap;gap:4px 16px;font-weight:800;font-size:15px}
+nav .links a{text-decoration:none;padding:8px 2px;min-height:44px;display:inline-flex;align-items:center}
+nav .links a:hover{color:var(--gold)}
+.band{padding:clamp(36px,5vw,72px) max(4vw,14px)}
+.in{max-width:1180px;margin:0 auto}
+.hero{background:radial-gradient(120% 90% at 70% 40%,light-dark(#94c06c,#35532a),var(--grass2))}
+.hero .in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,4vw,56px);align-items:center}
+.hero p.lead{font-size:19px;color:light-dark(#20321a,#e6f0d6);font-weight:600;margin:16px 0 24px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:14px;border:3px solid var(--wood2);background:var(--gold);color:#2a1a0d;font-weight:800;font-size:17px;text-decoration:none;cursor:pointer;box-shadow:0 4px 0 var(--wood2);font-family:inherit}
+.btn.alt{background:var(--parch);color:var(--ink)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--wood2)}
+.note{font-size:14px;color:light-dark(#2c3f22,#cfe0bd);margin-top:14px}
+.scene{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 24px rgba(0,0,0,.25))}
+.card{background:var(--parch);border:4px solid var(--wood2);border-radius:20px;box-shadow:0 14px 30px rgba(0,0,0,.22)}
+.sheet{padding:clamp(22px,4vw,44px)}
+.sheet>h2{margin-bottom:6px}
+.sub{color:var(--muted);margin:6px 0 0}
+.feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:28px}
+.feat{background:var(--parch2);border:2px solid var(--line);border-radius:16px;padding:18px}
+.feat svg{width:64px;height:64px;display:block;margin-bottom:10px}
+.feat p{margin:6px 0 0;font-size:15px}
+.shots-wrap{position:relative;margin-top:26px}
+.shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;scrollbar-width:thin}
+.shot{flex:none;width:min(260px,70vw);scroll-snap-align:start;margin:0}
+.shot img{width:100%;aspect-ratio:9/16;height:auto;display:block;border-radius:16px;border:4px solid var(--wood2);background:var(--parch2)}
+.shot figcaption{font-weight:800;text-align:center;margin-top:8px;color:#fff7e6;text-shadow:0 2px 0 var(--wood2)}
+.arrows{display:flex;gap:10px;justify-content:flex-end;margin-top:4px}
+.arrows button{width:52px;height:48px;padding:0;font-size:22px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+.step{position:relative;padding:20px 20px 20px 20px;border-radius:16px;background:var(--parch2);border:2px solid var(--line)}
+.step b{display:block;font-family:MedievalSharp,serif;font-size:24px;font-weight:400}
+.step p{margin:6px 0 0;font-size:15px}
+.join{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:28px;align-items:center}
+.mailbox{background:var(--parch2);border:2px dashed var(--wood);border-radius:16px;padding:20px;text-align:center}
+.mailbox .addr{font-size:22px;font-weight:800;overflow-wrap:anywhere;margin:6px 0 14px}
+ol{padding-left:1.3em}ol li{margin:6px 0}
+details{border-top:2px solid var(--line);padding:4px 0}
+details:last-child{border-bottom:2px solid var(--line)}
+summary{cursor:pointer;font-weight:800;font-size:17px;padding:12px 0;min-height:44px;list-style-position:outside}
+details p{margin:0 0 14px}
+footer{background:var(--wood);color:#f4e6c8;border-top:4px solid var(--wood2)}
+footer .in{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;padding:22px max(4vw,14px);font-size:15px}
+footer .fl{display:flex;flex-wrap:wrap;gap:6px 18px;font-weight:800}
+footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+footer a:hover{color:var(--gold)}
+.legal{max-width:860px;margin:0 auto}
+.legal .lang{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 4px}
+.legal .sum{margin-top:24px;padding:18px 20px;border-radius:14px;background:var(--parch2);border:2px solid var(--line)}
+.legal .sum p{margin:0 0 8px;font-weight:600}
+.legal h2{font-size:26px;margin:30px 0 8px}
+.legal ul{padding-left:1.2em;margin:8px 0}
+.legal section+section{margin-top:52px;padding-top:8px;border-top:2px dashed var(--line)}
+.mail{font-weight:800;white-space:nowrap}
+.view[hidden]{display:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--wood);color:#f4e6c8;padding:12px 20px;border-radius:12px;border:2px solid var(--wood2);font-weight:800;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+@keyframes march{from{transform:translateX(0)}to{transform:translateX(-26px)}}
+.gob{animation:march 2.4s ease-in-out infinite alternate}
+@media(prefers-reduced-motion:reduce){.gob{animation:none}}
+@media(max-width:900px){.feats{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:1fr}.join{grid-template-columns:1fr}}
+@media(max-width:600px){.hero .in{grid-template-columns:1fr}.hero .scene{order:-1;max-width:460px;margin:0 auto}.feats{grid-template-columns:1fr}nav .brand{font-size:20px}}
+
+.jsteps{display:grid;gap:16px;margin-top:22px;counter-reset:st}
+.jstep{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;align-items:start;background:var(--parch2);border:2px solid var(--line);border-radius:16px;padding:18px}
+.jstep .num{width:64px;height:64px;border-radius:50%;background:var(--gold);border:3px solid var(--wood2);display:flex;align-items:center;justify-content:center;font-family:MedievalSharp,serif;font-size:32px;color:#2a1a0d}
+.jstep h3{margin:4px 0 4px}
+.jstep p{margin:4px 0 12px}
+.jstep .btn{margin-top:2px}
+.tip{margin-top:22px;padding:16px 18px;border-radius:14px;border:2px dashed var(--wood);background:var(--parch2)}
+.tip p{margin:4px 0}
+#join-en,#join-nl{margin-top:0;padding-top:0;border-top:0}
+</style>
+</head>
+<body>
+<nav><div class="in">
+<a class="brand" href="index.html"><img src="img/icon.webp" alt="">The Little Keep</a>
+<div class="links"><a href="index.html#features">Features</a><a href="index.html#screens">Screenshots</a><a href="join.html">Join the test</a><a href="index.html#faq">FAQ</a></div>
+</div></nav>
+<div class="band"><div class="card sheet legal">
+<p><a href="index.html">&larr; The Little Keep</a></p>
+<div class="lang"><button class="btn" data-lang="en">English</button><button class="btn alt" data-lang="nl">Nederlands</button></div>
+
+<section id="join-en" lang="en">
+<h1 style="color:var(--ink);text-shadow:none;font-size:clamp(32px,5vw,44px)">Join the closed test</h1>
+<p class="sub">Play The Little Keep before anyone else. It takes about two minutes.</p>
+<div class="jsteps">
+<div class="jstep"><div class="num">1</div><div><h3>Join the tester group</h3><p>Open the group and tap <b>Join group</b>. Use the same Google account as on your Android phone.</p><a class="btn" data-link="group" href="#" target="_blank" rel="noopener">Open the tester group</a></div></div>
+<div class="jstep"><div class="num">2</div><div><h3>Become a tester</h3><p>Open the test page and tap <b>Become a tester</b>.</p><a class="btn" href="https://play.google.com/apps/testing/com.t3ddygames.littlekeep" target="_blank" rel="noopener">Become a tester</a></div></div>
+<div class="jstep"><div class="num">3</div><div><h3>Install the game</h3><p>Install The Little Keep from Google Play on your phone. If the page says the app can’t be found, wait a few minutes and try again.</p><a class="btn" href="https://play.google.com/store/apps/details?id=com.t3ddygames.littlekeep" target="_blank" rel="noopener">Open in Google Play</a></div></div>
+<div class="jstep"><div class="num">4</div><div><h3>Keep it for 14 days</h3><p>Google needs testers to keep the game installed for 14 days before it can be released. Open it now and then, and tell us what you think via <b>Menu → Send feedback</b>.</p></div></div>
+</div>
+<div class="tip"><p><b>Something not working?</b></p><p>“Item not found” usually means the Google account on your phone isn’t the one in the group, or it hasn’t updated yet. Check the account and try again a little later.</p><p>Still stuck? Email <a class="mail" href="mailto:berenpret@gmail.com?subject=The%20Little%20Keep%20tester">berenpret@gmail.com</a> with your Gmail address and we’ll add you by hand.</p></div>
+</section>
+<section id="join-nl" lang="nl" hidden>
+<h1 style="color:var(--ink);text-shadow:none;font-size:clamp(32px,5vw,44px)">Doe mee met de gesloten test</h1>
+<p class="sub">Speel The Little Keep vóór iedereen. Het duurt ongeveer twee minuten.</p>
+<div class="jsteps">
+<div class="jstep"><div class="num">1</div><div><h3>Word lid van de testersgroep</h3><p>Open de groep en tik op <b>Lid worden</b>. Gebruik hetzelfde Google-account als op je Android-telefoon.</p><a class="btn" data-link="group" href="#" target="_blank" rel="noopener">Open de testersgroep</a></div></div>
+<div class="jstep"><div class="num">2</div><div><h3>Word tester</h3><p>Open de testpagina en tik op <b>Tester worden</b>.</p><a class="btn" href="https://play.google.com/apps/testing/com.t3ddygames.littlekeep" target="_blank" rel="noopener">Tester worden</a></div></div>
+<div class="jstep"><div class="num">3</div><div><h3>Installeer de game</h3><p>Installeer The Little Keep via Google Play op je telefoon. Zegt de pagina dat de app niet gevonden kan worden? Wacht een paar minuten en probeer het opnieuw.</p><a class="btn" href="https://play.google.com/store/apps/details?id=com.t3ddygames.littlekeep" target="_blank" rel="noopener">Openen in Google Play</a></div></div>
+<div class="jstep"><div class="num">4</div><div><h3>Houd hem 14 dagen</h3><p>Google wil dat testers de game 14 dagen geïnstalleerd houden voordat hij uit mag komen. Open hem af en toe, en vertel ons wat je ervan vindt via <b>Menu → Feedback sturen</b>.</p></div></div>
+</div>
+<div class="tip"><p><b>Werkt er iets niet?</b></p><p>“Item niet gevonden” betekent meestal dat het Google-account op je telefoon niet het account in de groep is, of dat het nog niet is bijgewerkt. Controleer het account en probeer het later nog eens.</p><p>Kom je er niet uit? Mail <a class="mail" href="mailto:berenpret@gmail.com?subject=The%20Little%20Keep%20tester">berenpret@gmail.com</a> met je Gmail-adres, dan voegen we je met de hand toe.</p></div>
+</section>
+</div></div>
+<footer><div class="in">
+<div>&copy; 2026 T3ddy Games · The Little Keep</div>
+<div class="fl"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="mailto:berenpret@gmail.com">Contact</a></div>
+</div></footer>
+<script>
+{
+// The Google Group's address: the link testers open in step 1.
+const GROUP_URL='https://groups.google.com/g/the-little-keep-testers';
+for(const a of document.querySelectorAll('[data-link=group]'))a.href=GROUP_URL;
+const show=l=>{for(const x of ['en','nl']){document.getElementById('join-'+x).hidden=x!==l;}
+ for(const b of document.querySelectorAll('[data-lang]'))b.classList.toggle('alt',b.dataset.lang!==l);
+ document.documentElement.lang=l;};
+for(const b of document.querySelectorAll('[data-lang]'))b.addEventListener('click',()=>show(b.dataset.lang));
+const q=new URLSearchParams(location.search).get('lang');
+show(q==='nl'||q==='en'?q:((navigator.language||'').toLowerCase().startsWith('nl')?'nl':'en'));
+}
+</script>
+</body>
+</html>
