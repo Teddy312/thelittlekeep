@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Little Keep · Privacy policy</title>
+<meta name="description" content="One little keep, endless waves. A cozy idle defense game for Android.">
+<link rel="icon" href="img/icon.webp" type="image/webp">
+<meta property="og:title" content="The Little Keep">
+<meta property="og:description" content="One little keep, endless waves. A cozy idle defense game for Android.">
+<meta property="og:image" content="https://teddy312.github.io/thelittlekeep/img/feature.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: warm, cozy, a little storybook; a small indie game's home on the web
+   IDEA: the game's own meadow seen from above, with a parchment notice board pinned beside it
+   PICTURE: a big drawn scene: the wooden keep on its island of earth, defenders on the walls, goblins marching in
+   COLOUR and TYPE: meadow green field, parchment cards, dark wood frames, gold buttons; MedievalSharp titles, Nunito text
+   LAYOUT: wood nav, hero (title + scene), features, screenshot scroller, how it plays, join the test, FAQ, footer; legal pages as separate views */
+:root{color-scheme:light dark;--grass:light-dark(#7fae5a,#2c4422);--grass2:light-dark(#6b9a49,#243a1c);--parch:light-dark(#f4e6c8,#2f2116);--parch2:light-dark(#ead6ad,#3a2a1c);--ink:light-dark(#3a2616,#f0e2c4);--muted:light-dark(#6b5238,#c9b48f);--wood:#5a3a22;--wood2:#3e2716;--gold:#e8ad2c;--line:light-dark(#d9c49c,#4a3524)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:84px;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--grass);color:var(--ink);font:16px/1.6 Nunito,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:MedievalSharp,Georgia,serif;font-weight:400;line-height:1.08;text-wrap:balance;margin:0}
+h1{font-size:clamp(40px,6vw,52px);color:#fff7e6;text-shadow:0 3px 0 var(--wood2),0 0 18px rgba(0,0,0,.25)}
+h2{font-size:clamp(32px,4vw,44px)}
+h3{font-size:24px}
+p{max-width:68ch}
+nav{position:sticky;top:0;z-index:5;background:var(--wood);border-bottom:4px solid var(--wood2);color:#f4e6c8}
+nav .in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;padding:10px max(4vw,14px)}
+nav .brand{display:flex;align-items:center;gap:10px;font-family:MedievalSharp,serif;font-size:24px;text-decoration:none;margin-right:auto}
+nav .brand img{width:40px;height:40px;border-radius:10px;border:2px solid var(--wood2)}
+nav .links{display:flex;flex-wrap:wrap;gap:4px 16px;font-weight:800;font-size:15px}
+nav .links a{text-decoration:none;padding:8px 2px;min-height:44px;display:inline-flex;align-items:center}
+nav .links a:hover{color:var(--gold)}
+.band{padding:clamp(36px,5vw,72px) max(4vw,14px)}
+.in{max-width:1180px;margin:0 auto}
+.hero{background:radial-gradient(120% 90% at 70% 40%,light-dark(#94c06c,#35532a),var(--grass2))}
+.hero .in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,4vw,56px);align-items:center}
+.hero p.lead{font-size:19px;color:light-dark(#20321a,#e6f0d6);font-weight:600;margin:16px 0 24px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:14px;border:3px solid var(--wood2);background:var(--gold);color:#2a1a0d;font-weight:800;font-size:17px;text-decoration:none;cursor:pointer;box-shadow:0 4px 0 var(--wood2);font-family:inherit}
+.btn.alt{background:var(--parch);color:var(--ink)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--wood2)}
+.note{font-size:14px;color:light-dark(#2c3f22,#cfe0bd);margin-top:14px}
+.scene{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 24px rgba(0,0,0,.25))}
+.card{background:var(--parch);border:4px solid var(--wood2);border-radius:20px;box-shadow:0 14px 30px rgba(0,0,0,.22)}
+.sheet{padding:clamp(22px,4vw,44px)}
+.sheet>h2{margin-bottom:6px}
+.sub{color:var(--muted);margin:6px 0 0}
+.feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:28px}
+.feat{background:var(--parch2);border:2px solid var(--line);border-radius:16px;padding:18px}
+.feat svg{width:64px;height:64px;display:block;margin-bottom:10px}
+.feat p{margin:6px 0 0;font-size:15px}
+.shots-wrap{position:relative;margin-top:26px}
+.shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;scrollbar-width:thin}
+.shot{flex:none;width:min(260px,70vw);scroll-snap-align:start;margin:0}
+.shot img{width:100%;aspect-ratio:9/16;height:auto;display:block;border-radius:16px;border:4px solid var(--wood2);background:var(--parch2)}
+.shot figcaption{font-weight:800;text-align:center;margin-top:8px;color:#fff7e6;text-shadow:0 2px 0 var(--wood2)}
+.arrows{display:flex;gap:10px;justify-content:flex-end;margin-top:4px}
+.arrows button{width:52px;height:48px;padding:0;font-size:22px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+.step{position:relative;padding:20px 20px 20px 20px;border-radius:16px;background:var(--parch2);border:2px solid var(--line)}
+.step b{display:block;font-family:MedievalSharp,serif;font-size:24px;font-weight:400}
+.step p{margin:6px 0 0;font-size:15px}
+.join{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:28px;align-items:center}
+.mailbox{background:var(--parch2);border:2px dashed var(--wood);border-radius:16px;padding:20px;text-align:center}
+.mailbox .addr{font-size:22px;font-weight:800;overflow-wrap:anywhere;margin:6px 0 14px}
+ol{padding-left:1.3em}ol li{margin:6px 0}
+details{border-top:2px solid var(--line);padding:4px 0}
+details:last-child{border-bottom:2px solid var(--line)}
+summary{cursor:pointer;font-weight:800;font-size:17px;padding:12px 0;min-height:44px;list-style-position:outside}
+details p{margin:0 0 14px}
+footer{background:var(--wood);color:#f4e6c8;border-top:4px solid var(--wood2)}
+footer .in{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;padding:22px max(4vw,14px);font-size:15px}
+footer .fl{display:flex;flex-wrap:wrap;gap:6px 18px;font-weight:800}
+footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+footer a:hover{color:var(--gold)}
+.legal{max-width:860px;margin:0 auto}
+.legal .lang{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 4px}
+.legal .sum{margin-top:24px;padding:18px 20px;border-radius:14px;background:var(--parch2);border:2px solid var(--line)}
+.legal .sum p{margin:0 0 8px;font-weight:600}
+.legal h2{font-size:26px;margin:30px 0 8px}
+.legal ul{padding-left:1.2em;margin:8px 0}
+.legal section+section{margin-top:52px;padding-top:8px;border-top:2px dashed var(--line)}
+.mail{font-weight:800;white-space:nowrap}
+.view[hidden]{display:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--wood);color:#f4e6c8;padding:12px 20px;border-radius:12px;border:2px solid var(--wood2);font-weight:800;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+@keyframes march{from{transform:translateX(0)}to{transform:translateX(-26px)}}
+.gob{animation:march 2.4s ease-in-out infinite alternate}
+@media(prefers-reduced-motion:reduce){.gob{animation:none}}
+@media(max-width:900px){.feats{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:1fr}.join{grid-template-columns:1fr}}
+@media(max-width:600px){.hero .in{grid-template-columns:1fr}.hero .scene{order:-1;max-width:460px;margin:0 auto}.feats{grid-template-columns:1fr}nav .brand{font-size:20px}}
+</style>
+</head>
+<body>
+<body>
+<nav><div class="in">
+<a class="brand" href="index.html"><img src="img/icon.webp" alt="">The Little Keep</a>
+<div class="links"><a href="index.html#features">Features</a><a href="index.html#screens">Screenshots</a><a href="index.html#join">Join the test</a><a href="index.html#faq">FAQ</a></div>
+</div></nav>
+<div><div class="band"><div class="card sheet legal">
+<p><a href="index.html">&larr; Back to The Little Keep</a></p>
+<h1 style="color:var(--ink);text-shadow:none;font-size:clamp(32px,5vw,44px)">Privacy policy</h1>
+<p class="sub">T3ddy Games · effective 24 November 2026</p>
+<div class="lang"><button class="btn" data-go="privacy-en">English</button><button class="btn alt" data-go="privacy-nl">Nederlands</button></div>
+<section id="privacy-en" lang="en">
+<div class="sum">
+<p>In short</p>
+<ul>
+<li>We don't run our own servers and we don't sell your data.</li>
+<li>Your progress is saved on your phone, and in your own Google account if you use cloud save.</li>
+<li>Ads are always optional. They are shown by Google AdMob, which uses your advertising ID; in Europe you choose whether ads may be personalised.</li>
+<li>Questions or a deletion request: <span class="mail">berenpret@gmail.com</span></li>
+</ul>
+</div>
+
+<h2>Who we are</h2>
+<p>The Little Keep is a mobile game made by T3ddy Games (Jessie van den Ende), based in the Netherlands. We are responsible for this game and this policy. You can reach us at <a href="mailto:berenpret@gmail.com" class="mail">berenpret@gmail.com</a>.</p>
+
+<h2>What stays on your phone</h2>
+<p>Your game progress (waves, defenders, upgrades, settings and similar) is stored on your device. The game also keeps a small local error log to help us fix crashes. This information does not leave your phone unless you use cloud save or send us a feedback report yourself.</p>
+
+<h2>Cloud save with Google Play Games</h2>
+<p>If you sign in with Google Play Games, the game stores a copy of your progress in your Google account as a Saved Game, and uses your Play Games player profile to sign you in. This is handled by Google under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. We do not receive your email address or other account details. You can remove saved games and Play Games data from your Google account settings or the Google Play Games app.</p>
+
+<h2>Advertising (Google AdMob)</h2>
+<p>The game offers optional rewarded ads, for example for an extra dungeon key or a wheel spin. Ads are never forced. They are provided by Google AdMob, which may collect your device's advertising ID, IP address, device and app information, and how you interact with ads, in order to show ads, limit how often you see them, measure them and prevent fraud. See <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from apps that use its services</a>.</p>
+<p>If you are in the European Economic Area, the United Kingdom or Switzerland, the game asks for your consent before personalised ads are shown. You can change your choice at any time under Settings → Ad choices in the game. You can also reset or delete your advertising ID in your phone's settings.</p>
+
+<h2>Purchases (Google Play Billing)</h2>
+<p>"Ad-free rewards" is an optional in-app purchase. Payment is handled entirely by Google Play. We only receive a confirmation that the purchase was made, so the game can unlock it. We never see your payment details.</p>
+
+<h2>Feedback</h2>
+<p>Settings → Send feedback lets you copy a report with your game progress, device model and recent error messages. Nothing is sent automatically: you decide whether to paste it into an email to us. We use these reports only to fix problems and improve the game, and delete them when they are no longer needed.</p>
+
+<h2>Children</h2>
+<p>The Little Keep is not directed at children under 13, and we do not knowingly collect personal information from them. If you believe a child has sent us personal information, contact us and we will delete it.</p>
+
+<h2>Your rights</h2>
+<p>Depending on where you live (for example under the GDPR in the European Union), you have the right to ask what information about you we hold, to have it corrected or deleted, and to object to its use. Since almost everything is stored on your phone or in your Google account, you can delete it yourself: use Settings → Reset progress in the game, uninstall the app, and remove saved games in your Google account. For anything else, email us. You can also file a complaint with your data protection authority; in the Netherlands that is the Autoriteit Persoonsgegevens.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, we will update this page and the date at the top.</p>
+</section>
+
+<section id="privacy-nl" lang="nl">
+<div class="sum">
+<p>In het kort</p>
+<ul>
+<li>We hebben geen eigen servers en verkopen je gegevens niet.</li>
+<li>Je voortgang staat op je telefoon, en in je eigen Google-account als je cloudopslag gebruikt.</li>
+<li>Advertenties zijn altijd vrijwillig. Ze worden getoond door Google AdMob, dat je advertentie-ID gebruikt; in Europa kies je zelf of advertenties persoonlijk mogen zijn.</li>
+<li>Vragen of een verwijderverzoek: <span class="mail">berenpret@gmail.com</span></li>
+</ul>
+</div>
+
+<h2>Wie we zijn</h2>
+<p>The Little Keep is een mobiele game van T3ddy Games (Jessie van den Ende), gevestigd in Nederland. Wij zijn verantwoordelijk voor deze game en dit beleid. Je bereikt ons via <a href="mailto:berenpret@gmail.com" class="mail">berenpret@gmail.com</a>.</p>
+
+<h2>Wat op je telefoon blijft</h2>
+<p>Je spelvoortgang (golven, verdedigers, upgrades, instellingen en dergelijke) wordt op je apparaat opgeslagen. De game houdt ook een klein foutenlogboek bij om crashes op te lossen. Deze gegevens verlaten je telefoon niet, tenzij je cloudopslag gebruikt of zelf een feedbackrapport naar ons stuurt.</p>
+
+<h2>Cloudopslag met Google Play Games</h2>
+<p>Als je inlogt met Google Play Games, bewaart de game een kopie van je voortgang als Opgeslagen game in je Google-account, en gebruikt hij je Play Games-spelersprofiel om je in te loggen. Dit regelt Google volgens het <a href="https://policies.google.com/privacy?hl=nl">Privacybeleid van Google</a>. Wij ontvangen je e-mailadres of andere accountgegevens niet. Je kunt opgeslagen games en Play Games-gegevens verwijderen via je Google-accountinstellingen of de Google Play Games-app.</p>
+
+<h2>Advertenties (Google AdMob)</h2>
+<p>De game biedt vrijwillige advertenties met een beloning, bijvoorbeeld voor een extra kerkersleutel of een draai aan het rad. Advertenties zijn nooit verplicht. Ze komen van Google AdMob, dat de advertentie-ID van je apparaat, je IP-adres, apparaat- en app-informatie en je interactie met advertenties kan verzamelen om advertenties te tonen, te beperken hoe vaak je ze ziet, ze te meten en fraude te voorkomen. Zie <a href="https://policies.google.com/technologies/partner-sites?hl=nl">hoe Google gegevens gebruikt van apps die zijn diensten gebruiken</a>.</p>
+<p>Ben je in de Europese Economische Ruimte, het Verenigd Koninkrijk of Zwitserland, dan vraagt de game eerst je toestemming voordat er persoonlijke advertenties worden getoond. Je kunt je keuze altijd wijzigen via Instellingen → Advertentiekeuzes in de game. Je kunt je advertentie-ID ook resetten of verwijderen in de instellingen van je telefoon.</p>
+
+<h2>Aankopen (Google Play Billing)</h2>
+<p>"Beloningen zonder advertenties" is een vrijwillige aankoop in de app. De betaling wordt volledig door Google Play afgehandeld. Wij krijgen alleen een bevestiging dat de aankoop is gedaan, zodat de game hem kan ontgrendelen. Je betaalgegevens zien wij nooit.</p>
+
+<h2>Feedback</h2>
+<p>Met Instellingen → Feedback sturen kopieer je een rapport met je spelvoortgang, je telefoonmodel en recente foutmeldingen. Er wordt niets automatisch verstuurd: jij beslist of je het in een e-mail aan ons plakt. We gebruiken deze rapporten alleen om problemen op te lossen en de game te verbeteren, en verwijderen ze als ze niet meer nodig zijn.</p>
+
+<h2>Kinderen</h2>
+<p>The Little Keep is niet bedoeld voor kinderen jonger dan 13 jaar, en we verzamelen niet bewust persoonsgegevens van hen. Denk je dat een kind ons persoonsgegevens heeft gestuurd, neem dan contact op en we verwijderen ze.</p>
+
+<h2>Je rechten</h2>
+<p>Afhankelijk van waar je woont (bijvoorbeeld onder de AVG in de Europese Unie) heb je het recht om te vragen welke gegevens we over je hebben, ze te laten corrigeren of verwijderen, en bezwaar te maken tegen het gebruik ervan. Omdat bijna alles op je telefoon of in je Google-account staat, kun je het zelf verwijderen: gebruik Instellingen → Voortgang resetten in de game, verwijder de app en verwijder opgeslagen games in je Google-account. Voor al het andere kun je ons mailen. Je kunt ook een klacht indienen bij de Autoriteit Persoonsgegevens.</p>
+
+<h2>Wijzigingen</h2>
+<p>Als dit beleid verandert, passen we deze pagina en de datum bovenaan aan.</p>
+</section>
+
+</div></div></div>
+
+<footer><div class="in">
+<div>&copy; 2026 T3ddy Games · The Little Keep</div>
+<div class="fl"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="index.html#join">Contact</a></div>
+</div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<div class="toast" id="toast" role="status"></div>
+<script>
+{
+const s=document.getElementById('shots');
+if(s){
+const step=()=>{const f=s.querySelector('.shot');return f?f.getBoundingClientRect().width+18:280;};
+document.getElementById('prev').addEventListener('click',()=>s.scrollBy({left:-step(),behavior:'smooth'}));
+document.getElementById('next').addEventListener('click',()=>s.scrollBy({left:step(),behavior:'smooth'}));
+s.tabIndex=0;
+s.addEventListener('keydown',e=>{if(e.key==='ArrowRight')s.scrollBy({left:step()});if(e.key==='ArrowLeft')s.scrollBy({left:-step()});});
+}
+const toast=document.getElementById('toast');
+const say=t=>{toast.textContent=t;toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),1800);};
+const c=document.getElementById('copy');
+if(c)c.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('berenpret@gmail.com');say('Address copied');}catch(e){say('Copy failed: the address is berenpret@gmail.com');}});
+for(const b of document.querySelectorAll('[data-go]'))b.addEventListener('click',()=>{const t=document.getElementById(b.dataset.go);if(t)t.scrollIntoView();});
+}
+</script>
+</body>
+</html>

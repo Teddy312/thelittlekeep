@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Little Keep · Terms of service</title>
+<meta name="description" content="One little keep, endless waves. A cozy idle defense game for Android.">
+<link rel="icon" href="img/icon.webp" type="image/webp">
+<meta property="og:title" content="The Little Keep">
+<meta property="og:description" content="One little keep, endless waves. A cozy idle defense game for Android.">
+<meta property="og:image" content="https://teddy312.github.io/thelittlekeep/img/feature.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: warm, cozy, a little storybook; a small indie game's home on the web
+   IDEA: the game's own meadow seen from above, with a parchment notice board pinned beside it
+   PICTURE: a big drawn scene: the wooden keep on its island of earth, defenders on the walls, goblins marching in
+   COLOUR and TYPE: meadow green field, parchment cards, dark wood frames, gold buttons; MedievalSharp titles, Nunito text
+   LAYOUT: wood nav, hero (title + scene), features, screenshot scroller, how it plays, join the test, FAQ, footer; legal pages as separate views */
+:root{color-scheme:light dark;--grass:light-dark(#7fae5a,#2c4422);--grass2:light-dark(#6b9a49,#243a1c);--parch:light-dark(#f4e6c8,#2f2116);--parch2:light-dark(#ead6ad,#3a2a1c);--ink:light-dark(#3a2616,#f0e2c4);--muted:light-dark(#6b5238,#c9b48f);--wood:#5a3a22;--wood2:#3e2716;--gold:#e8ad2c;--line:light-dark(#d9c49c,#4a3524)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:84px;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--grass);color:var(--ink);font:16px/1.6 Nunito,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:MedievalSharp,Georgia,serif;font-weight:400;line-height:1.08;text-wrap:balance;margin:0}
+h1{font-size:clamp(40px,6vw,52px);color:#fff7e6;text-shadow:0 3px 0 var(--wood2),0 0 18px rgba(0,0,0,.25)}
+h2{font-size:clamp(32px,4vw,44px)}
+h3{font-size:24px}
+p{max-width:68ch}
+nav{position:sticky;top:0;z-index:5;background:var(--wood);border-bottom:4px solid var(--wood2);color:#f4e6c8}
+nav .in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;padding:10px max(4vw,14px)}
+nav .brand{display:flex;align-items:center;gap:10px;font-family:MedievalSharp,serif;font-size:24px;text-decoration:none;margin-right:auto}
+nav .brand img{width:40px;height:40px;border-radius:10px;border:2px solid var(--wood2)}
+nav .links{display:flex;flex-wrap:wrap;gap:4px 16px;font-weight:800;font-size:15px}
+nav .links a{text-decoration:none;padding:8px 2px;min-height:44px;display:inline-flex;align-items:center}
+nav .links a:hover{color:var(--gold)}
+.band{padding:clamp(36px,5vw,72px) max(4vw,14px)}
+.in{max-width:1180px;margin:0 auto}
+.hero{background:radial-gradient(120% 90% at 70% 40%,light-dark(#94c06c,#35532a),var(--grass2))}
+.hero .in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,4vw,56px);align-items:center}
+.hero p.lead{font-size:19px;color:light-dark(#20321a,#e6f0d6);font-weight:600;margin:16px 0 24px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:14px;border:3px solid var(--wood2);background:var(--gold);color:#2a1a0d;font-weight:800;font-size:17px;text-decoration:none;cursor:pointer;box-shadow:0 4px 0 var(--wood2);font-family:inherit}
+.btn.alt{background:var(--parch);color:var(--ink)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--wood2)}
+.note{font-size:14px;color:light-dark(#2c3f22,#cfe0bd);margin-top:14px}
+.scene{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 24px rgba(0,0,0,.25))}
+.card{background:var(--parch);border:4px solid var(--wood2);border-radius:20px;box-shadow:0 14px 30px rgba(0,0,0,.22)}
+.sheet{padding:clamp(22px,4vw,44px)}
+.sheet>h2{margin-bottom:6px}
+.sub{color:var(--muted);margin:6px 0 0}
+.feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:28px}
+.feat{background:var(--parch2);border:2px solid var(--line);border-radius:16px;padding:18px}
+.feat svg{width:64px;height:64px;display:block;margin-bottom:10px}
+.feat p{margin:6px 0 0;font-size:15px}
+.shots-wrap{position:relative;margin-top:26px}
+.shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;scrollbar-width:thin}
+.shot{flex:none;width:min(260px,70vw);scroll-snap-align:start;margin:0}
+.shot img{width:100%;aspect-ratio:9/16;height:auto;display:block;border-radius:16px;border:4px solid var(--wood2);background:var(--parch2)}
+.shot figcaption{font-weight:800;text-align:center;margin-top:8px;color:#fff7e6;text-shadow:0 2px 0 var(--wood2)}
+.arrows{display:flex;gap:10px;justify-content:flex-end;margin-top:4px}
+.arrows button{width:52px;height:48px;padding:0;font-size:22px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+.step{position:relative;padding:20px 20px 20px 20px;border-radius:16px;background:var(--parch2);border:2px solid var(--line)}
+.step b{display:block;font-family:MedievalSharp,serif;font-size:24px;font-weight:400}
+.step p{margin:6px 0 0;font-size:15px}
+.join{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:28px;align-items:center}
+.mailbox{background:var(--parch2);border:2px dashed var(--wood);border-radius:16px;padding:20px;text-align:center}
+.mailbox .addr{font-size:22px;font-weight:800;overflow-wrap:anywhere;margin:6px 0 14px}
+ol{padding-left:1.3em}ol li{margin:6px 0}
+details{border-top:2px solid var(--line);padding:4px 0}
+details:last-child{border-bottom:2px solid var(--line)}
+summary{cursor:pointer;font-weight:800;font-size:17px;padding:12px 0;min-height:44px;list-style-position:outside}
+details p{margin:0 0 14px}
+footer{background:var(--wood);color:#f4e6c8;border-top:4px solid var(--wood2)}
+footer .in{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;padding:22px max(4vw,14px);font-size:15px}
+footer .fl{display:flex;flex-wrap:wrap;gap:6px 18px;font-weight:800}
+footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+footer a:hover{color:var(--gold)}
+.legal{max-width:860px;margin:0 auto}
+.legal .lang{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 4px}
+.legal .sum{margin-top:24px;padding:18px 20px;border-radius:14px;background:var(--parch2);border:2px solid var(--line)}
+.legal .sum p{margin:0 0 8px;font-weight:600}
+.legal h2{font-size:26px;margin:30px 0 8px}
+.legal ul{padding-left:1.2em;margin:8px 0}
+.legal section+section{margin-top:52px;padding-top:8px;border-top:2px dashed var(--line)}
+.mail{font-weight:800;white-space:nowrap}
+.view[hidden]{display:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--wood);color:#f4e6c8;padding:12px 20px;border-radius:12px;border:2px solid var(--wood2);font-weight:800;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+@keyframes march{from{transform:translateX(0)}to{transform:translateX(-26px)}}
+.gob{animation:march 2.4s ease-in-out infinite alternate}
+@media(prefers-reduced-motion:reduce){.gob{animation:none}}
+@media(max-width:900px){.feats{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:1fr}.join{grid-template-columns:1fr}}
+@media(max-width:600px){.hero .in{grid-template-columns:1fr}.hero .scene{order:-1;max-width:460px;margin:0 auto}.feats{grid-template-columns:1fr}nav .brand{font-size:20px}}
+</style>
+</head>
+<body>
+<body>
+<nav><div class="in">
+<a class="brand" href="index.html"><img src="img/icon.webp" alt="">The Little Keep</a>
+<div class="links"><a href="index.html#features">Features</a><a href="index.html#screens">Screenshots</a><a href="index.html#join">Join the test</a><a href="index.html#faq">FAQ</a></div>
+</div></nav>
+<div><div class="band"><div class="card sheet legal">
+<p><a href="index.html">&larr; Back to The Little Keep</a></p>
+<h1 style="color:var(--ink);text-shadow:none;font-size:clamp(32px,5vw,44px)">Terms of service</h1>
+<p class="sub">T3ddy Games · effective 24 November 2026</p>
+<div class="lang"><button class="btn" data-go="terms-en">English</button><button class="btn alt" data-go="terms-nl">Nederlands</button></div>
+<section id="terms-en" lang="en">
+<div class="sum">
+<p>In short</p>
+<ul>
+<li>The game is free to play. Ads are optional, and "Ad-free rewards" is the only purchase.</li>
+<li>Coins, gold, crowns, pets and other in-game items have no real-world value and can't be exchanged for money.</li>
+<li>Purchases and refunds go through Google Play.</li>
+<li>Questions: <span class="mail">berenpret@gmail.com</span></li>
+</ul>
+</div>
+
+<h2>Who we are</h2>
+<p>The Little Keep is made by T3ddy Games (Jessie van den Ende), the Netherlands. Contact: <a href="mailto:berenpret@gmail.com" class="mail">berenpret@gmail.com</a>. By installing or playing the game, you agree to these terms. If you don't agree, please don't use the game.</p>
+
+<h2>Using the game</h2>
+<p>We give you a personal, non-exclusive, non-transferable licence to install and play The Little Keep on devices you own or control, for your own non-commercial use. You may not copy, sell, rent out or redistribute the game, reverse-engineer it except where the law allows, or use cheats, hacks or modified versions to gain an advantage or to interfere with the game.</p>
+
+<h2>In-game items</h2>
+<p>The game contains virtual items such as coins, gold, crowns, gems, relics, pets and defenders. You earn these by playing. They are part of the game, not your property: they have no monetary value, can't be traded or exchanged for real money, and may be changed, rebalanced or removed as the game is updated.</p>
+
+<h2>Purchases</h2>
+<p>"Ad-free rewards" is an optional one-time purchase that lets you collect ad rewards without watching ads. Prices are shown in Google Play before you buy, and payment is handled by Google Play under its own terms. Because the purchase is digital content delivered immediately, you agree when buying that it starts right away and that your right of withdrawal ends once it has been delivered. This does not affect your legal rights if the purchase doesn't work: contact us and we will fix it or arrange a refund. Refunds can also be requested through Google Play under its refund policy.</p>
+
+<h2>Ads</h2>
+<p>The game shows ads only when you choose to watch one for a reward. Ads are provided by Google AdMob. We are not responsible for the content of third-party ads or the products they promote. See our privacy policy for how ad data is handled.</p>
+
+<h2>Cloud save and your progress</h2>
+<p>Your progress is saved on your device, and in your Google account if you use cloud save through Google Play Games. We do our best to keep your progress safe, but we can't guarantee it will never be lost, for example after uninstalling the game, resetting your phone or a problem with a third-party service.</p>
+
+<h2>Changes and availability</h2>
+<p>We may update the game, add or remove features, change these terms, or stop offering the game. When these terms change in a meaningful way, we will update this page and the date at the top. If we ever stop the game entirely, we will try to give notice in the game or on its store page.</p>
+
+<h2>Liability</h2>
+<p>The game is provided as it is. As far as the law allows, we are not liable for indirect damage, lost data or lost profits from using the game. Nothing in these terms limits rights you have as a consumer that can't be limited by law, or our liability for intent or gross negligence.</p>
+
+<h2>Law and disputes</h2>
+<p>These terms are governed by Dutch law. If you live in the European Union, you also keep the protection of the mandatory consumer laws of your own country. If you have a complaint, please contact us first; we'll try to solve it together.</p>
+</section>
+
+<section id="terms-nl" lang="nl">
+<div class="sum">
+<p>In het kort</p>
+<ul>
+<li>De game is gratis te spelen. Advertenties zijn vrijwillig, en "Beloningen zonder advertenties" is de enige aankoop.</li>
+<li>Munten, goud, kronen, huisdieren en andere spelitems hebben geen echte waarde en kunnen niet worden ingewisseld voor geld.</li>
+<li>Aankopen en terugbetalingen lopen via Google Play.</li>
+<li>Vragen: <span class="mail">berenpret@gmail.com</span></li>
+</ul>
+</div>
+
+<h2>Wie we zijn</h2>
+<p>The Little Keep wordt gemaakt door T3ddy Games (Jessie van den Ende), Nederland. Contact: <a href="mailto:berenpret@gmail.com" class="mail">berenpret@gmail.com</a>. Door de game te installeren of te spelen, ga je akkoord met deze voorwaarden. Ga je niet akkoord, gebruik de game dan niet.</p>
+
+<h2>De game gebruiken</h2>
+<p>We geven je een persoonlijke, niet-exclusieve, niet-overdraagbare licentie om The Little Keep te installeren en te spelen op apparaten die van jou zijn of die je beheert, voor eigen, niet-commercieel gebruik. Je mag de game niet kopiëren, verkopen, verhuren of verspreiden, niet decompileren behalve waar de wet dat toestaat, en geen cheats, hacks of aangepaste versies gebruiken om voordeel te halen of de game te verstoren.</p>
+
+<h2>Spelitems</h2>
+<p>De game bevat virtuele items zoals munten, goud, kronen, edelstenen, relikwieën, huisdieren en verdedigers. Die verdien je door te spelen. Ze horen bij de game en zijn niet jouw eigendom: ze hebben geen geldwaarde, kunnen niet worden geruild of ingewisseld voor echt geld, en kunnen bij updates worden aangepast, herbalanceerd of verwijderd.</p>
+
+<h2>Aankopen</h2>
+<p>"Beloningen zonder advertenties" is een vrijwillige eenmalige aankoop waarmee je advertentiebeloningen krijgt zonder advertenties te kijken. De prijs zie je in Google Play voordat je koopt, en de betaling verloopt via Google Play onder de voorwaarden van Google. Omdat het digitale inhoud is die direct wordt geleverd, ga je er bij de aankoop mee akkoord dat de levering meteen begint en dat je herroepingsrecht vervalt zodra de aankoop is geleverd. Dit doet niets af aan je wettelijke rechten als de aankoop niet werkt: neem contact met ons op en we lossen het op of regelen een terugbetaling. Je kunt ook via Google Play een terugbetaling aanvragen volgens het beleid van Google.</p>
+
+<h2>Advertenties</h2>
+<p>De game toont alleen advertenties als jij ervoor kiest er een te bekijken voor een beloning. De advertenties komen van Google AdMob. Wij zijn niet verantwoordelijk voor de inhoud van advertenties van derden of de producten die erin worden aangeprezen. Hoe advertentiegegevens worden gebruikt, staat in ons privacybeleid.</p>
+
+<h2>Cloudopslag en je voortgang</h2>
+<p>Je voortgang wordt op je apparaat opgeslagen, en in je Google-account als je cloudopslag via Google Play Games gebruikt. We doen ons best je voortgang veilig te houden, maar kunnen niet garanderen dat die nooit verloren gaat, bijvoorbeeld na het verwijderen van de game, het resetten van je telefoon of een probleem bij een dienst van derden.</p>
+
+<h2>Wijzigingen en beschikbaarheid</h2>
+<p>We kunnen de game bijwerken, functies toevoegen of verwijderen, deze voorwaarden wijzigen of stoppen met de game. Als deze voorwaarden wezenlijk veranderen, passen we deze pagina en de datum bovenaan aan. Als we ooit helemaal stoppen met de game, proberen we dat vooraf te melden in de game of op de winkelpagina.</p>
+
+<h2>Aansprakelijkheid</h2>
+<p>De game wordt geleverd zoals hij is. Voor zover de wet dat toestaat, zijn we niet aansprakelijk voor indirecte schade, verloren gegevens of gederfde winst door het gebruik van de game. Niets in deze voorwaarden beperkt de rechten die je als consument hebt en die wettelijk niet mogen worden beperkt, of onze aansprakelijkheid bij opzet of grove nalatigheid.</p>
+
+<h2>Recht en geschillen</h2>
+<p>Op deze voorwaarden is Nederlands recht van toepassing. Woon je in de Europese Unie, dan blijf je ook beschermd door de dwingende consumentenregels van je eigen land. Heb je een klacht, neem dan eerst contact met ons op; we zoeken samen naar een oplossing.</p>
+</section>
+
+</div></div></div>
+
+<footer><div class="in">
+<div>&copy; 2026 T3ddy Games · The Little Keep</div>
+<div class="fl"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="index.html#join">Contact</a></div>
+</div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<div class="toast" id="toast" role="status"></div>
+<script>
+{
+const s=document.getElementById('shots');
+if(s){
+const step=()=>{const f=s.querySelector('.shot');return f?f.getBoundingClientRect().width+18:280;};
+document.getElementById('prev').addEventListener('click',()=>s.scrollBy({left:-step(),behavior:'smooth'}));
+document.getElementById('next').addEventListener('click',()=>s.scrollBy({left:step(),behavior:'smooth'}));
+s.tabIndex=0;
+s.addEventListener('keydown',e=>{if(e.key==='ArrowRight')s.scrollBy({left:step()});if(e.key==='ArrowLeft')s.scrollBy({left:-step()});});
+}
+const toast=document.getElementById('toast');
+const say=t=>{toast.textContent=t;toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),1800);};
+const c=document.getElementById('copy');
+if(c)c.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('berenpret@gmail.com');say('Address copied');}catch(e){say('Copy failed: the address is berenpret@gmail.com');}});
+for(const b of document.querySelectorAll('[data-go]'))b.addEventListener('click',()=>{const t=document.getElementById(b.dataset.go);if(t)t.scrollIntoView();});
+}
+</script>
+</body>
+</html>

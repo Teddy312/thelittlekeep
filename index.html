@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Little Keep</title>
+<meta name="description" content="One little keep, endless waves. A cozy idle defense game for Android.">
+<link rel="icon" href="img/icon.webp" type="image/webp">
+<meta property="og:title" content="The Little Keep">
+<meta property="og:description" content="One little keep, endless waves. A cozy idle defense game for Android.">
+<meta property="og:image" content="https://teddy312.github.io/thelittlekeep/img/feature.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: warm, cozy, a little storybook; a small indie game's home on the web
+   IDEA: the game's own meadow seen from above, with a parchment notice board pinned beside it
+   PICTURE: a big drawn scene: the wooden keep on its island of earth, defenders on the walls, goblins marching in
+   COLOUR and TYPE: meadow green field, parchment cards, dark wood frames, gold buttons; MedievalSharp titles, Nunito text
+   LAYOUT: wood nav, hero (title + scene), features, screenshot scroller, how it plays, join the test, FAQ, footer; legal pages as separate views */
+:root{color-scheme:light dark;--grass:light-dark(#7fae5a,#2c4422);--grass2:light-dark(#6b9a49,#243a1c);--parch:light-dark(#f4e6c8,#2f2116);--parch2:light-dark(#ead6ad,#3a2a1c);--ink:light-dark(#3a2616,#f0e2c4);--muted:light-dark(#6b5238,#c9b48f);--wood:#5a3a22;--wood2:#3e2716;--gold:#e8ad2c;--line:light-dark(#d9c49c,#4a3524)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:84px;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--grass);color:var(--ink);font:16px/1.6 Nunito,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:MedievalSharp,Georgia,serif;font-weight:400;line-height:1.08;text-wrap:balance;margin:0}
+h1{font-size:clamp(40px,6vw,52px);color:#fff7e6;text-shadow:0 3px 0 var(--wood2),0 0 18px rgba(0,0,0,.25)}
+h2{font-size:clamp(32px,4vw,44px)}
+h3{font-size:24px}
+p{max-width:68ch}
+nav{position:sticky;top:0;z-index:5;background:var(--wood);border-bottom:4px solid var(--wood2);color:#f4e6c8}
+nav .in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;padding:10px max(4vw,14px)}
+nav .brand{display:flex;align-items:center;gap:10px;font-family:MedievalSharp,serif;font-size:24px;text-decoration:none;margin-right:auto}
+nav .brand img{width:40px;height:40px;border-radius:10px;border:2px solid var(--wood2)}
+nav .links{display:flex;flex-wrap:wrap;gap:4px 16px;font-weight:800;font-size:15px}
+nav .links a{text-decoration:none;padding:8px 2px;min-height:44px;display:inline-flex;align-items:center}
+nav .links a:hover{color:var(--gold)}
+.band{padding:clamp(36px,5vw,72px) max(4vw,14px)}
+.in{max-width:1180px;margin:0 auto}
+.hero{background:radial-gradient(120% 90% at 70% 40%,light-dark(#94c06c,#35532a),var(--grass2))}
+.hero .in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,4vw,56px);align-items:center}
+.hero p.lead{font-size:19px;color:light-dark(#20321a,#e6f0d6);font-weight:600;margin:16px 0 24px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:14px;border:3px solid var(--wood2);background:var(--gold);color:#2a1a0d;font-weight:800;font-size:17px;text-decoration:none;cursor:pointer;box-shadow:0 4px 0 var(--wood2);font-family:inherit}
+.btn.alt{background:var(--parch);color:var(--ink)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--wood2)}
+.note{font-size:14px;color:light-dark(#2c3f22,#cfe0bd);margin-top:14px}
+.scene{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 24px rgba(0,0,0,.25))}
+.card{background:var(--parch);border:4px solid var(--wood2);border-radius:20px;box-shadow:0 14px 30px rgba(0,0,0,.22)}
+.sheet{padding:clamp(22px,4vw,44px)}
+.sheet>h2{margin-bottom:6px}
+.sub{color:var(--muted);margin:6px 0 0}
+.feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:28px}
+.feat{background:var(--parch2);border:2px solid var(--line);border-radius:16px;padding:18px}
+.feat svg{width:64px;height:64px;display:block;margin-bottom:10px}
+.feat p{margin:6px 0 0;font-size:15px}
+.shots-wrap{position:relative;margin-top:26px}
+.shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;scrollbar-width:thin}
+.shot{flex:none;width:min(260px,70vw);scroll-snap-align:start;margin:0}
+.shot img{width:100%;aspect-ratio:9/16;height:auto;display:block;border-radius:16px;border:4px solid var(--wood2);background:var(--parch2)}
+.shot figcaption{font-weight:800;text-align:center;margin-top:8px;color:#fff7e6;text-shadow:0 2px 0 var(--wood2)}
+.arrows{display:flex;gap:10px;justify-content:flex-end;margin-top:4px}
+.arrows button{width:52px;height:48px;padding:0;font-size:22px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+.step{position:relative;padding:20px 20px 20px 20px;border-radius:16px;background:var(--parch2);border:2px solid var(--line)}
+.step b{display:block;font-family:MedievalSharp,serif;font-size:24px;font-weight:400}
+.step p{margin:6px 0 0;font-size:15px}
+.join{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:28px;align-items:center}
+.mailbox{background:var(--parch2);border:2px dashed var(--wood);border-radius:16px;padding:20px;text-align:center}
+.mailbox .addr{font-size:22px;font-weight:800;overflow-wrap:anywhere;margin:6px 0 14px}
+ol{padding-left:1.3em}ol li{margin:6px 0}
+details{border-top:2px solid var(--line);padding:4px 0}
+details:last-child{border-bottom:2px solid var(--line)}
+summary{cursor:pointer;font-weight:800;font-size:17px;padding:12px 0;min-height:44px;list-style-position:outside}
+details p{margin:0 0 14px}
+footer{background:var(--wood);color:#f4e6c8;border-top:4px solid var(--wood2)}
+footer .in{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;padding:22px max(4vw,14px);font-size:15px}
+footer .fl{display:flex;flex-wrap:wrap;gap:6px 18px;font-weight:800}
+footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+footer a:hover{color:var(--gold)}
+.legal{max-width:860px;margin:0 auto}
+.legal .lang{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 4px}
+.legal .sum{margin-top:24px;padding:18px 20px;border-radius:14px;background:var(--parch2);border:2px solid var(--line)}
+.legal .sum p{margin:0 0 8px;font-weight:600}
+.legal h2{font-size:26px;margin:30px 0 8px}
+.legal ul{padding-left:1.2em;margin:8px 0}
+.legal section+section{margin-top:52px;padding-top:8px;border-top:2px dashed var(--line)}
+.mail{font-weight:800;white-space:nowrap}
+.view[hidden]{display:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--wood);color:#f4e6c8;padding:12px 20px;border-radius:12px;border:2px solid var(--wood2);font-weight:800;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+@keyframes march{from{transform:translateX(0)}to{transform:translateX(-26px)}}
+.gob{animation:march 2.4s ease-in-out infinite alternate}
+@media(prefers-reduced-motion:reduce){.gob{animation:none}}
+@media(max-width:900px){.feats{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:1fr}.join{grid-template-columns:1fr}}
+@media(max-width:600px){.hero .in{grid-template-columns:1fr}.hero .scene{order:-1;max-width:460px;margin:0 auto}.feats{grid-template-columns:1fr}nav .brand{font-size:20px}}
+</style>
+</head>
+<body>
+<body>
+<nav><div class="in">
+<a class="brand" href="#top"><img src="img/icon.webp" alt="">The Little Keep</a>
+<div class="links"><a href="#features">Features</a><a href="#screens">Screenshots</a><a href="#join">Join the test</a><a href="#faq">FAQ</a></div>
+</div></nav>
+<div>
+<header class="band hero" id="top"><div class="in">
+<div>
+<h1>One little keep. Endless waves.</h1>
+<p class="lead">A cozy idle defense game for Android. You don't build a maze of towers: you protect one small keep, train the defenders on its walls, and climb further every time you start over.</p>
+<div class="btns"><a class="btn" href="#join">Join the closed test</a><a class="btn alt" href="#screens">See screenshots</a></div>
+<p class="note">Free to play · ads are always optional · English and Dutch</p>
+</div>
+<svg class="scene" viewBox="0 0 600 460" role="img" aria-label="The little wooden keep on its island of earth, defenders on the walls, goblins marching in">
+<defs>
+<radialGradient id="isl" cx=".5" cy=".4" r=".6"><stop offset="0" stop-color="#d8b07a"/><stop offset="1" stop-color="#b98a52"/></radialGradient>
+<linearGradient id="wall" x1="0" x2="1"><stop offset="0" stop-color="#a8743f"/><stop offset=".25" stop-color="#8a5d33"/><stop offset="1" stop-color="#6f4826"/></linearGradient>
+<g id="tree"><ellipse cx="0" cy="34" rx="18" ry="6" fill="#000" opacity=".18"/><rect x="-3" y="18" width="6" height="16" fill="#6b4524"/><path d="M0 -26 L20 6 L-20 6Z" fill="#3f7a3a"/><path d="M0 -10 L24 22 L-24 22Z" fill="#2f6a30"/><path d="M0 -26 L6 -16 L-2 4Z" fill="#5c9a4c" opacity=".7"/></g>
+<g id="gob"><ellipse cx="0" cy="13" rx="11" ry="4" fill="#000" opacity=".2"/><circle r="12" fill="#6fae4f"/><circle cx="-2" cy="-3" r="12" fill="#86c463" opacity=".5"/><path d="M-12 -4 A12 12 0 0 1 12 -4 L12 -2 L-12 -2Z" fill="#9aa1a8"/><circle cx="-4" cy="2" r="2.4" fill="#fff"/><circle cx="4" cy="2" r="2.4" fill="#fff"/><circle cx="-4" cy="2.4" r="1.2" fill="#222"/><circle cx="4" cy="2.4" r="1.2" fill="#222"/></g>
+<g id="def"><circle r="13" fill="#f4e6c8" stroke="#3e2716" stroke-width="2.5"/><circle cy="-2" r="7" fill="#e8b98f"/><path d="M-8 -4 Q0 -16 8 -4Z" fill="#3f7a3a"/><path d="M-9 12 Q0 2 9 12Z" fill="#3f7a3a"/></g>
+</defs>
+<ellipse cx="300" cy="300" rx="250" ry="150" fill="#5f8f43" opacity=".35"/>
+<use href="#tree" x="70" y="120"/><use href="#tree" x="520" y="90"/><use href="#tree" x="540" y="330"/><use href="#tree" x="60" y="360"/><use href="#tree" x="140" y="410"/><use href="#tree" x="470" y="410"/>
+<path d="M300 210 l150 40 l40 70 l-70 60 l-150 10 l-110 -40 l-20 -70 l60 -55Z" fill="url(#isl)"/>
+<path d="M300 236 l110 30 l28 52 l-52 44 l-110 8 l-82 -30 l-14 -52 l44 -40Z" fill="#c99b62" opacity=".6"/>
+<ellipse cx="300" cy="330" rx="70" ry="16" fill="#3e2716" opacity=".3"/>
+<rect x="244" y="150" width="112" height="178" rx="4" fill="url(#wall)"/>
+<g fill="#8a5d33"><rect x="236" y="126" width="24" height="28"/><rect x="272" y="126" width="24" height="28"/><rect x="306" y="126" width="24" height="28"/><rect x="340" y="126" width="24" height="28"/></g>
+<rect x="236" y="148" width="128" height="10" fill="#5a3a22"/>
+<path d="M286 328 v-42 a14 14 0 0 1 28 0 v42z" fill="#3e2716"/>
+<rect x="262" y="190" width="12" height="20" rx="2" fill="#3e2716"/><rect x="326" y="190" width="12" height="20" rx="2" fill="#3e2716"/>
+<line x1="300" y1="126" x2="300" y2="70" stroke="#3e2716" stroke-width="4"/>
+<path d="M302 72 L344 84 L302 96Z" fill="#c8553d"/>
+<use href="#def" x="262" y="118"/><use href="#def" x="300" y="112"/><use href="#def" x="338" y="118"/>
+<g stroke="#5a3a22" stroke-width="3" stroke-linecap="round"><line x1="352" y1="112" x2="420" y2="150"/><line x1="250" y1="114" x2="186" y2="160"/></g>
+<g class="gob"><use href="#gob" x="470" y="200"/><use href="#gob" x="505" y="240"/><use href="#gob" x="455" y="285"/></g>
+<g class="gob" style="animation-delay:-1.2s"><use href="#gob" x="150" y="230"/><use href="#gob" x="120" y="280"/></g>
+<circle cx="540" cy="40" r="26" fill="#ffe27a" opacity=".85"/>
+</svg>
+</div></header>
+
+<section class="band" id="features"><div class="in card sheet">
+<h2>What you'll do</h2>
+<p class="sub">Simple to start, with a lot to grow into.</p>
+<div class="feats">
+<div class="feat"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="18" width="32" height="40" fill="#8a5d33"/><g fill="#8a5d33"><rect x="12" y="10" width="10" height="10"/><rect x="27" y="10" width="10" height="10"/><rect x="42" y="10" width="10" height="10"/></g><path d="M28 58v-12a4 4 0 0 1 8 0v12z" fill="#3e2716"/></svg><h3>Hold the keep</h3><p>Waves come from every side. Fall, and your keep repairs and fights on a few waves back.</p></div>
+<div class="feat"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="22" cy="30" r="13" fill="#f4e6c8" stroke="#3e2716" stroke-width="3"/><circle cx="42" cy="30" r="13" fill="#f4e6c8" stroke="#3e2716" stroke-width="3"/><circle cx="22" cy="28" r="6" fill="#e8b98f"/><circle cx="42" cy="28" r="6" fill="#bcd6a4"/><path d="M14 42 Q22 34 30 42Z" fill="#c8553d"/><path d="M34 42 Q42 34 50 42Z" fill="#3f7a3a"/></svg><h3>Train defenders</h3><p>20 defenders from four factions: Humans, Elves, Orcs and Undead, each role playing differently.</p></div>
+<div class="feat"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="36" r="16" fill="#8a5d33"/><circle cx="32" cy="40" r="10" fill="#d8c4a0"/><path d="M20 26 l4 -12 l6 10Z M44 26 l-4 -12 l-6 10Z" fill="#6b4a2b"/><circle cx="26" cy="32" r="4" fill="#ffe27a"/><circle cx="38" cy="32" r="4" fill="#ffe27a"/><circle cx="26" cy="32" r="1.6" fill="#2a1c10"/><circle cx="38" cy="32" r="1.6" fill="#2a1c10"/></svg><h3>Hatch pets</h3><p>20 pets to hatch and evolve to five stars, each with its own skills and a partner defender.</p></div>
+<div class="feat"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 44 L16 20 L26 32 L32 14 L38 32 L48 20 L52 44Z" fill="#e8ad2c" stroke="#3e2716" stroke-width="3" stroke-linejoin="round"/><rect x="12" y="44" width="40" height="8" fill="#c8892a" stroke="#3e2716" stroke-width="3"/></svg><h3>Rise again</h3><p>Ascend, be crowned and found a Dynasty. Every new start makes your keep stronger.</p></div>
+</div>
+</div></section>
+
+<section class="band" id="screens" style="padding-top:0"><div class="in">
+<h2 style="color:#fff7e6;text-shadow:0 3px 0 var(--wood2)">A look inside</h2>
+<div class="shots-wrap">
+<div class="shots" id="shots">
+<figure class="shot"><img src="img/battle.webp" alt="A battle: the keep in the snow with defender upgrades below" loading="lazy" width="540" height="960"><figcaption>The battle</figcaption></figure>
+<figure class="shot"><img src="img/garrison.webp" alt="The Garrison screen with defenders on the walls" loading="lazy" width="540" height="960"><figcaption>Your Garrison</figcaption></figure>
+<figure class="shot"><img src="img/pets.webp" alt="The Pets screen with stars and skills" loading="lazy" width="540" height="960"><figcaption>Pets</figcaption></figure>
+<figure class="shot"><img src="img/menu.webp" alt="The Menu with everything in the game" loading="lazy" width="540" height="960"><figcaption>Everything in one menu</figcaption></figure>
+<figure class="shot"><img src="img/dungeons.webp" alt="The Dungeons screen" loading="lazy" width="540" height="960"><figcaption>Dungeons and the raid</figcaption></figure>
+</div>
+<div class="arrows"><button class="btn alt" id="prev" aria-label="Previous screenshot">&larr;</button><button class="btn alt" id="next" aria-label="Next screenshot">&rarr;</button></div>
+</div>
+</div></section>
+
+<section class="band" style="padding-top:0"><div class="in card sheet">
+<h2>How a run plays</h2>
+<div class="steps">
+<div class="step"><b>Defend</b><p>Your defenders fight on their own. Spend the coins they earn to level them up while the waves keep coming.</p></div>
+<div class="step"><b>Train</b><p>When your keep hits a wall, spend gold in the Garrison, hatch pets and collect relics to push further.</p></div>
+<div class="step"><b>Ascend</b><p>Start over with crowns for upgrades that last forever, and watch the next climb go faster.</p></div>
+</div>
+</div></section>
+
+<section class="band" id="join" style="padding-top:0"><div class="in card sheet join">
+<div>
+<h2>Join the closed test</h2>
+<p>The Little Keep is in closed testing on Google Play before its public release. Testers play the full game for free and help shape it.</p>
+<ol>
+<li>Send the Gmail address you use on your Android phone to the address shown here.</li>
+<li>You'll get a link to become a tester. Open it and tap <b>Become a tester</b>.</li>
+<li>Install The Little Keep from Google Play and keep it installed for at least 14 days.</li>
+</ol>
+</div>
+<div class="mailbox">
+<div>Email us at</div>
+<div class="addr">berenpret@gmail.com</div>
+<div class="btns" style="justify-content:center"><button class="btn" id="copy">Copy address</button><a class="btn alt" href="mailto:berenpret@gmail.com?subject=The%20Little%20Keep%20tester">Open email</a></div>
+</div>
+</div></section>
+
+<section class="band" id="faq" style="padding-top:0"><div class="in card sheet">
+<h2>Questions</h2>
+<div style="margin-top:16px">
+<details><summary>Is it free?</summary><p>Yes. The game is free to play. Ads only show when you choose to watch one for a reward, and the one optional purchase, "Ad-free rewards", gives those rewards without watching.</p></details>
+<details><summary>Do I need internet?</summary><p>No, you can play offline. Ads and cloud save need a connection when you use them.</p></details>
+<details><summary>Will my progress be saved?</summary><p>Progress is saved on your phone, and with Google Play Games sign-in it is also saved in the cloud, so you can continue on a new phone.</p></details>
+<details><summary>Is there an iPhone version?</summary><p>Not yet. The Little Keep is coming to Android first.</p></details>
+<details><summary>Which languages?</summary><p>English and Dutch.</p></details>
+<details><summary>I found a bug. Where do I report it?</summary><p>In the game, go to Settings, then Send feedback, and paste the report into an email to berenpret@gmail.com.</p></details>
+</div>
+</div></section>
+</div>
+
+<footer><div class="in">
+<div>&copy; 2026 T3ddy Games · The Little Keep</div>
+<div class="fl"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="#join">Contact</a></div>
+</div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<div class="toast" id="toast" role="status"></div>
+<script>
+{
+const s=document.getElementById('shots');
+if(s){
+const step=()=>{const f=s.querySelector('.shot');return f?f.getBoundingClientRect().width+18:280;};
+document.getElementById('prev').addEventListener('click',()=>s.scrollBy({left:-step(),behavior:'smooth'}));
+document.getElementById('next').addEventListener('click',()=>s.scrollBy({left:step(),behavior:'smooth'}));
+s.tabIndex=0;
+s.addEventListener('keydown',e=>{if(e.key==='ArrowRight')s.scrollBy({left:step()});if(e.key==='ArrowLeft')s.scrollBy({left:-step()});});
+}
+const toast=document.getElementById('toast');
+const say=t=>{toast.textContent=t;toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),1800);};
+const c=document.getElementById('copy');
+if(c)c.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('berenpret@gmail.com');say('Address copied');}catch(e){say('Copy failed: the address is berenpret@gmail.com');}});
+for(const b of document.querySelectorAll('[data-go]'))b.addEventListener('click',()=>{const t=document.getElementById(b.dataset.go);if(t)t.scrollIntoView();});
+}
+</script>
+</body>
+</html>
