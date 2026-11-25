@@ -1,11 +1,11 @@
 {
-  "code": 10,
-  "name": "0.4.0",
+  "code": 11,
+  "name": "0.4.1",
   "notes": {
-    "en": "Silver, random blessings and curses, Coronation at wave 500, a new battle panel, volume sliders, colour-blind mode and much more.",
-    "nl": "Zilver, willekeurige zegens en vloeken, Kroning bij golf 500, een nieuw gevechtspaneel, volumeschuiven, kleurenblinde modus en nog veel meer.",
-    "de": "Silber, zufällige Segen und Flüche, Krönung ab Welle 500, ein neues Kampffeld, Lautstärkeregler, Farbenblind-Modus und vieles mehr.",
-    "fr": "L'Argent, bénédictions et malédictions aléatoires, Couronnement à la vague 500, un nouveau panneau de combat, réglage du volume, mode daltonien et bien plus.",
-    "es": "Plata, bendiciones y maldiciones aleatorias, Coronación en la oleada 500, un nuevo panel de batalla, control de volumen, modo daltónico y mucho más."
+    "en": "Bestiary tiers, a Sellsword who fights for coins, 19 new blessings and 9 new curses, quick +10 / +100 buttons, and dungeons now start at full health.",
+    "nl": "Bestiariumrangen, een huurling die voor munten vecht, 19 nieuwe zegeningen en 9 nieuwe vloeken, snelle +10 / +100 knoppen, en kerkers beginnen nu met volle gezondheid.",
+    "de": "Bestiarium-Ränge, ein Söldner, der für Münzen kämpft, 19 neue Segen und 9 neue Flüche, schnelle +10 / +100 Tasten, und Verliese starten jetzt mit voller Gesundheit.",
+    "fr": "Rangs du bestiaire, un mercenaire qui combat pour des pièces, 19 nouvelles bénédictions et 9 nouvelles malédictions, boutons rapides +10 / +100, et les donjons commencent avec la santé au maximum.",
+    "es": "Rangos del bestiario, un mercenario que lucha por monedas, 19 nuevas bendiciones y 9 nuevas maldiciones, botones rápidos +10 / +100, y las mazmorras empiezan con la salud completa."
   }
 }
