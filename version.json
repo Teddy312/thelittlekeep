@@ -1,11 +1,11 @@
 {
-  "code": 9,
-  "name": "0.9",
+  "code": 10,
+  "name": "0.4.0",
   "notes": {
-    "en": "",
-    "nl": "",
-    "de": "",
-    "fr": "",
-    "es": ""
+    "en": "Silver, random blessings and curses, Coronation at wave 500, a new battle panel, volume sliders, colour-blind mode and much more.",
+    "nl": "Zilver, willekeurige zegens en vloeken, Kroning bij golf 500, een nieuw gevechtspaneel, volumeschuiven, kleurenblinde modus en nog veel meer.",
+    "de": "Silber, zufällige Segen und Flüche, Krönung ab Welle 500, ein neues Kampffeld, Lautstärkeregler, Farbenblind-Modus und vieles mehr.",
+    "fr": "L'Argent, bénédictions et malédictions aléatoires, Couronnement à la vague 500, un nouveau panneau de combat, réglage du volume, mode daltonien et bien plus.",
+    "es": "Plata, bendiciones y maldiciones aleatorias, Coronación en la oleada 500, un nuevo panel de batalla, control de volumen, modo daltónico y mucho más."
   }
 }
