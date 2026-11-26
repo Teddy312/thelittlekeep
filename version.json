@@ -1,11 +1,11 @@
 {
-  "code": 11,
-  "name": "0.4.1",
+  "code": 13,
+  "name": "0.5.0",
   "notes": {
-    "en": "Bestiary tiers, a Sellsword who fights for coins, 19 new blessings and 9 new curses, quick +10 / +100 buttons, and dungeons now start at full health.",
-    "nl": "Bestiariumrangen, een huurling die voor munten vecht, 19 nieuwe zegeningen en 9 nieuwe vloeken, snelle +10 / +100 knoppen, en kerkers beginnen nu met volle gezondheid.",
-    "de": "Bestiarium-Ränge, ein Söldner, der für Münzen kämpft, 19 neue Segen und 9 neue Flüche, schnelle +10 / +100 Tasten, und Verliese starten jetzt mit voller Gesundheit.",
-    "fr": "Rangs du bestiaire, un mercenaire qui combat pour des pièces, 19 nouvelles bénédictions et 9 nouvelles malédictions, boutons rapides +10 / +100, et les donjons commencent avec la santé au maximum.",
-    "es": "Rangos del bestiario, un mercenario que lucha por monedas, 19 nuevas bendiciones y 9 nuevas maldiciones, botones rápidos +10 / +100, y las mazmorras empiezan con la salud completa."
+    "en": "Big update: defenders unlock with pieces, 16 Militia join early, a Recruiting Post, the Wildwood Trail for pets, stronger relics, gear that levels up while worn, and new icons.",
+    "nl": "Grote update: verdedigers speel je vrij met stukken, 16 Militie-verdedigers komen vroeg, een Wervingspost, het Wildwoudpad voor huisdieren, sterkere relikwieën, uitrusting die vanzelf sterker wordt en nieuwe pictogrammen.",
+    "de": "Großes Update: Verteidiger schaltest du mit Teilen frei, 16 Miliz-Verteidiger kommen früh, ein Werbeposten, der Wildwaldpfad für Haustiere, stärkere Relikte, Ausrüstung, die beim Tragen aufsteigt, und neue Symbole.",
+    "fr": "Grosse mise à jour : défenseurs débloqués avec des morceaux, 16 défenseurs de la Milice arrivent tôt, un Poste de recrutement, le Sentier du Bois sauvage pour les familiers, des reliques plus fortes, un équipement qui progresse en étant porté et de nouvelles icônes.",
+    "es": "Gran actualización: defensores que se desbloquean con piezas, 16 defensores de la Milicia llegan pronto, un Puesto de reclutamiento, el Sendero del Bosque Salvaje para mascotas, reliquias más fuertes, equipo que sube de nivel al llevarlo y nuevos iconos."
   }
 }
